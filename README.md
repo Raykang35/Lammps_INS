@@ -24,7 +24,7 @@ parallel "mkdir {} && mv supercell-{} {}/supercell" ::: {001..xyz}
 
 5. Copy lammps.in file to each subfolder
 ```
-parallel 'cd {} && cp ../lammps.in . && cd ..' ::: {001..xyz}
+parallel 'cd {} && cp ../force.in . && cd ..' ::: {001..xyz}
 ```
 
 6. Before running Lammps, you have to modify the supercell file. Because ChIMES version of Lammps is 2020 and is not support "Atom Type Label". Therefore, you have to change this part back to
