@@ -45,5 +45,5 @@ parallel 'cd {} && sed -i 's/H/2/g' supercell && cd ..' ::: {001..072}
 
 7. Run lammps.in simulations at each folders (At NERSC, there is ChIMES version of Lammps installed using Docker) 
 ```
-parallel 'cd {} && shifter --image docker:nersc/lammps_chimes:20.10 lmp -in lammps.in && cd ..' ::: {001..xyz}
+parallel 'cd {} && shifter --image docker:nersc/lammps_chimes:20.10 lmp -in force.in && cd ..' ::: {001..xyz}
 ```
