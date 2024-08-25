@@ -40,8 +40,10 @@ You have to run this to quickly make it.
 
 ```
 parallel 'cd {} && sed -i "s/Atom Type Labels/Masses/g" supercell && cd ..' ::: {001..xyz}
+parallel 'cd {} && sed -i "12,17 s/1 H/1 12.0107 # C/" supercell && cd ..' ::: {001..xyz}
+parallel 'cd {} && sed -i "12,17 s/2 C/2 1.00794 # H/" supercell && cd ..' ::: {001..xyz}
 parallel 'cd {} && sed -i "s/C/1/g" supercell && cd ..' ::: {001..xyz}
-parallel 'cd {} && sed -i "s/H/2/g" supercell && cd ..' ::: {001..072}
+parallel 'cd {} && sed -i "s/H/2/g" supercell && cd ..' ::: {001..xyz}
 ```
 
 7. Run lammps.in simulations at each folders (At NERSC, there is ChIMES version of Lammps installed using Docker) 
