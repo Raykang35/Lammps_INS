@@ -14,7 +14,7 @@ Atom Type Labels
 3. Run Phonopy to create supercell structure
    
 ```
-phonopy --lammps -c anthracene_chimes111.lmp -d --dim 4 6 2
+phonopy --lammps -c relax.lmp -d --dim 4 6 2
 ```
 
 4. Create sub-folders to put supercell into the sub-folder (using parallel).
