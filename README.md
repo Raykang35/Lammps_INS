@@ -31,6 +31,7 @@ parallel 'cd {} && cp ../lammps.in . && cd ..' ::: {001..xyz}
 
 ```
 Masses
+
 1 12.0107 # C
 2 1.00794 # H
 ```
