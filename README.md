@@ -58,3 +58,8 @@ parallel 'cd {} && sed -i "s/H/2/g" supercell && cd ..' ::: {001..xyz}
 ```
 parallel --delay .5 'cd {} && shifter --image docker:nersc/lammps_chimes:20.10 lmp -in force.in && cd ..' ::: {001..xyz}
 ```
+
+8. Create FORCE_SETS using Phonopy
+```
+phonopy -f {001..072}/force.0
+```
