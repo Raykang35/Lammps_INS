@@ -39,7 +39,8 @@ Masses
 On the other hand, you have to run this 
 
 ```
-parallel 'cd {} && sed -i 's/C/1/g' supercell && cd ..' ::: {001..xyz} 
+parallel 'cd {} && sed -i 's/C/1/g' supercell && cd ..' ::: {001..xyz}
+parallel 'cd {} && sed -i 's/H/2/g' supercell && cd ..' ::: {001..072}
 ```
 
 7. Run lammps.in simulations at each folders (At NERSC, there is ChIMES version of Lammps installed using Docker) 
