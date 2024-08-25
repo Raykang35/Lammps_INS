@@ -18,3 +18,13 @@ phonopy --lammps -c anthracene_chimes111.lmp -d --dim 4 6 2
 ```
 parallel "mkdir {} && mv supercell-{} {}/supercell" ::: {001..xyz}
 ```
+
+4. Copy lammps.in file to each subfolder
+```
+parallel 'cd {} && cp ../lammps.in . && cd ..' ::: {001..xyz}
+```
+
+5. Run lammps.in simulations at each folders (At NERSC, there is ChIMES version of Lammps installed using Docker) 
+```
+parallel 'cd {} && shifter --image docker:nersc/lammps_chimes:20.10 lmp -in lammps.in && cd ..' ::: {001..xyz}
+```
