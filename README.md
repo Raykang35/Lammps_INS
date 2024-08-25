@@ -24,7 +24,15 @@ parallel "mkdir {} && mv supercell-{} {}/supercell" ::: {001..xyz}
 parallel 'cd {} && cp ../lammps.in . && cd ..' ::: {001..xyz}
 ```
 
-5. Run lammps.in simulations at each folders (At NERSC, there is ChIMES version of Lammps installed using Docker) 
+5. Before running Lammps, you have to modify the supercell file. Because ChIMES version of Lammps is 2020 and is not support "Atom Type Label". Therefore, you have to change this part back to
+
+```
+Masses
+1 12.0107 # C
+2 1.00794 # H
+```
+
+6. Run lammps.in simulations at each folders (At NERSC, there is ChIMES version of Lammps installed using Docker) 
 ```
 parallel 'cd {} && shifter --image docker:nersc/lammps_chimes:20.10 lmp -in lammps.in && cd ..' ::: {001..xyz}
 ```
