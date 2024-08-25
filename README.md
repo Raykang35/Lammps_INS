@@ -9,7 +9,7 @@ Atom Type Labels
 2 H
 ```
 
-2. Relax the structure using Lammps 
+2. Relax the structure using Lammps (relax.in)
 
 3. Run Phonopy to create supercell structure
    
@@ -33,6 +33,12 @@ parallel 'cd {} && cp ../lammps.in . && cd ..' ::: {001..xyz}
 Masses
 1 12.0107 # C
 2 1.00794 # H
+```
+
+On the other hand, you have to run this 
+
+```
+parallel 'cd {} && sed -i 's/C/1/g' supercell && cd ..' ::: {001..xyz} 
 ```
 
 7. Run lammps.in simulations at each folders (At NERSC, there is ChIMES version of Lammps installed using Docker) 
