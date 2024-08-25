@@ -14,7 +14,7 @@ Atom Type Labels
 phonopy --lammps -c anthracene_chimes111.lmp -d --dim 4 6 2
 ```
 
-Create sub-folders to put supercell into the sub-folder (using parallel).
+3. Create sub-folders to put supercell into the sub-folder (using parallel).
 ```
 parallel "mkdir {} && mv supercell-{} {}/supercell" ::: {001..xyz}
 ```
