@@ -36,9 +36,10 @@ Masses
 2 1.00794 # H
 ```
 
-On the other hand, you have to run this 
+You have to run this to quickly make it.
 
 ```
+parallel 'cd {} && sed -i 's/Atom Type Labels/Masses/g' supercell && cd ..' ::: {001..xyz}
 parallel 'cd {} && sed -i 's/C/1/g' supercell && cd ..' ::: {001..xyz}
 parallel 'cd {} && sed -i 's/H/2/g' supercell && cd ..' ::: {001..072}
 ```
