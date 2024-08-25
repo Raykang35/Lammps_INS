@@ -1,0 +1,32 @@
+#### CHIMES FORCE FIELD for force evaluation (Phonopy): Step 2 Force evaluation #######
+########### Made by Ray at 2024/8/24 (updated ) ############
+
+############# Initial Setting ################
+
+units           metal
+dimension       3
+atom_style      atomic 
+newton      on
+atom_modify sort 0 0.0
+boundary p p p
+read_data       supercell
+timestep 0.25
+neighbor        2.0 bin
+neigh_modify    delay 0 every 1 check yes
+
+#############################################
+
+#### Evaluate interactions with ChIMES ####
+
+pair_style      chimesFF
+pair_coeff      * * ../../../force_fields/params.txt
+
+###############################################################
+
+############  Force evaluation  ###############
+
+dump phonopy all custom 1 force.* id type x y z fx fy fz
+dump_modify phonopy format line "%d %d %15.8f %15.8f %15.8f %15.8f %15.8f %15.8f"
+run 0
+
+###########################################################
