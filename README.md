@@ -1,5 +1,5 @@
-# LAMMPS_INS
-This is for LAMMPS MD simultion using ChIMES Force Field
+# LAMMPS_Phonopy
+Calculating second order derivative potential energy (force constant) using Phonopy with LAMMPS ChIMES Force Field MD simultion !!!
 
 1. Create unitcell for lammps input, the atom_style should be atomic. Need to add the code in your structure file in order to follow Phonopy convention.
 ```
